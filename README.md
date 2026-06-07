@@ -22,7 +22,7 @@ Sistema inteligente de vigilância com câmera virtual, reconhecimento de padrõ
 
 ### Linux/Mac:
 ```bash
-git clone https://github.com/seu-usuario/lpx-monitoramento.git
+git clone https://github.com/LPX-Tecnologia/lpx-monitoramento.git
 cd lpx-monitoramento
 chmod +x setup.sh run.sh
 ./setup.sh
