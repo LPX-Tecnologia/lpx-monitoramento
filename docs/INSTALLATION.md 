@@ -1,0 +1,14 @@
+# Guia de Instalação Detalhado
+
+## Requisitos
+
+- Python 3.8 ou superior
+- pip (gerenciador de pacotes)
+- Git (opcional)
+
+## Instalação Passo a Passo
+
+### 1. Clone o repositório
+```bash
+git clone https://github.com/LPX-Tecnologia /lpx monitoramento.git
+cd lpx monitoramento

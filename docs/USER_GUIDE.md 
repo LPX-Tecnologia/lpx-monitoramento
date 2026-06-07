@@ -1,0 +1,42 @@
+# Manual do Usuário
+
+## Primeiro Acesso
+
+1. Abra o navegador
+2. Acesse http://localhost:5000
+3. Faça login com:
+   - Usuário: admin
+   - Senha: admin123
+
+## Dashboard
+
+O dashboard mostra:
+- **Pessoas Detectadas:** Contador de pessoas
+- **Veículos:** Veículos registrados
+- **Rostos:** Reconhecimentos faciais
+- **Alertas:** Total de alertas do dia
+
+## Câmeras
+
+### Adicionar Câmera
+1. Clique em "+ Adicionar Câmera"
+2. Preencha os dados
+3. Clique em "Adicionar"
+
+### Visualizar
+A câmera aparece automaticamente no grid
+
+## Alertas
+
+### Criar Alerta
+1. Clique em "Gerar Alerta"
+2. O alerta aparece na central
+
+### Filtrar
+Use as abas: Hoje, Semana, Mês, Ano
+
+## Dicas
+
+- Use o botão "Simular Detecção" para testar
+- Os dados são salvos automaticamente
+- Para sair, clique em "Sair"

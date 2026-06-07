@@ -1,0 +1,20 @@
+#!/bin/bash
+
+echo "📦 Criando backup do LPX Monitoramento..."
+
+# Criar pasta de backup
+BACKUP_DIR="backups/$(date +%Y%m%d_%H%M%S)"
+mkdir -p $BACKUP_DIR
+
+# Copiar banco de dados
+cp *.db $BACKUP_DIR/ 2>/dev/null
+
+# Copiar configurações
+cp -r static/ $BACKUP_DIR/ 2>/dev/null
+cp -r data/ $BACKUP_DIR/ 2>/dev/null
+
+# Compactar
+tar -czf $BACKUP_DIR.tar.gz $BACKUP_DIR
+rm -rf $BACKUP_DIR
+
+echo "✅ Backup criado: $BACKUP_DIR.tar.gz"
