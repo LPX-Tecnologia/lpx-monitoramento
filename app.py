@@ -4,7 +4,7 @@
 LPX - Sistema de Segurança e Monitoramento
 Versão: 1.0.0
 Autor: LPX Tecnologia
-GitHub: github.com/seu-usuario/lpx-monitoramento
+GitHub: github.com/LPX-Tecnologia/lpx-monitoramento
 """
 
 import os
