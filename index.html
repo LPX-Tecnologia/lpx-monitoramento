@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -7,26 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LPX - Segurança e Monitoramento</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 100%);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: white;
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
         }
         
         .container {
-            max-width: 600px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px;
         }
         
         .logo {
@@ -45,14 +42,9 @@
             font-size: 3.5em;
             text-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
             margin-bottom: 10px;
-            letter-spacing: 3px;
         }
         
-        .subtitle {
-            color: #888;
-            font-size: 1.2em;
-            margin-bottom: 30px;
-        }
+        .subtitle { color: #888; font-size: 1.2em; margin-bottom: 20px; }
         
         .badge {
             display: inline-block;
@@ -64,42 +56,78 @@
             font-size: 0.9em;
         }
         
-        .description {
-            color: #ccc;
-            margin: 20px 0;
-            line-height: 1.6;
-        }
-        
-        .features {
-            text-align: left;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
+        .section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 255, 0, 0.15);
             border-radius: 15px;
+            padding: 30px;
             margin: 20px 0;
-            border: 1px solid rgba(0, 255, 0, 0.2);
         }
         
-        .features h2 {
+        .section h2 {
             color: #00ff00;
             margin-bottom: 15px;
+            font-size: 1.5em;
         }
         
-        .features li {
-            margin: 10px 0;
-            color: #ccc;
-            list-style: none;
-        }
-        
-        .features li::before {
-            content: "✅ ";
-        }
-        
-        .buttons {
-            display: flex;
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
+            margin: 15px 0;
+        }
+        
+        .feature-item {
+            background: rgba(0, 255, 0, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .feature-icon { font-size: 2em; margin-bottom: 10px; }
+        .feature-text { color: #ccc; font-size: 0.9em; }
+        
+        .install-steps {
+            list-style: none;
+            counter-reset: step;
+        }
+        
+        .install-steps li {
+            counter-increment: step;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            border-left: 3px solid #00ff00;
+        }
+        
+        .install-steps li::before {
+            content: counter(step);
+            background: #00ff00;
+            color: black;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
-            margin: 20px 0;
+            margin-right: 10px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        code {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 15px;
+            border-radius: 8px;
+            display: block;
+            margin: 10px 0;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
         }
         
         .btn {
@@ -110,7 +138,7 @@
             text-decoration: none;
             border-radius: 10px;
             font-weight: bold;
-            font-size: 1em;
+            margin: 5px;
             transition: all 0.3s;
             border: none;
             cursor: pointer;
@@ -131,122 +159,290 @@
             background: rgba(0, 255, 0, 0.1);
         }
         
-        .install-cmd {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 15px;
-            border-radius: 10px;
-            font-family: monospace;
-            color: #00ff00;
-            margin: 20px 0;
-            border: 1px solid rgba(0, 255, 0, 0.3);
-            word-break: break-all;
+        .btn-small {
+            padding: 8px 15px;
+            font-size: 0.85em;
         }
         
-        .footer {
-            margin-top: 30px;
-            color: #666;
-            font-size: 0.9em;
-        }
-        
-        .footer a {
-            color: #00ff00;
-            text-decoration: none;
-        }
-        
-        .stats {
+        .tabs {
             display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin: 20px 0;
+            gap: 10px;
+            margin-bottom: 15px;
             flex-wrap: wrap;
         }
         
-        .stat-item {
-            text-align: center;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 10px;
-            min-width: 100px;
-        }
-        
-        .stat-number {
-            color: #00ff00;
-            font-size: 1.5em;
-            font-weight: bold;
-        }
-        
-        .stat-label {
+        .tab {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             color: #888;
-            font-size: 0.8em;
+            cursor: pointer;
+            border-radius: 8px;
+            border: none;
+        }
+        
+        .tab.active {
+            background: #00ff00;
+            color: black;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .alert {
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+        }
+        
+        .footer a { color: #00ff00; text-decoration: none; }
+        
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5em; }
+            .section { padding: 20px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo">🔒</div>
-        <h1>LPX</h1>
-        <p class="subtitle">Segurança e Monitoramento Inteligente</p>
-        
-        <div>
-            <span class="badge">🐍 Python 3.8+</span>
-            <span class="badge">📹 OpenCV</span>
-            <span class="badge">🌐 Flask</span>
-            <span class="badge">📊 SQLite</span>
+        <!-- Hero -->
+        <div class="hero">
+            <div class="logo">🔒</div>
+            <h1>LPX</h1>
+            <p class="subtitle">Segurança e Monitoramento Inteligente</p>
+            <div>
+                <span class="badge">🐍 Python 3.8+</span>
+                <span class="badge">📹 OpenCV</span>
+                <span class="badge">🌐 Flask</span>
+                <span class="badge">📊 SQLite</span>
+            </div>
         </div>
         
-        <p class="description">
-            Sistema profissional de vigilância com câmera virtual, 
-            reconhecimento de padrões e central de alertas inteligentes.
-            Desenvolvido com tecnologias modernas para segurança 24 horas.
-        </p>
+        <!-- Botões Rápidos -->
+        <div style="text-align: center; margin: 20px 0;">
+            <a href="#instalacao" class="btn">📥 COMO INSTALAR</a>
+            <a href="https://github.com/lpx-tecnologia/lpx-monitoramento" class="btn btn-outline">📦 GitHub</a>
+            <a href="https://github.com/lpx-tecnologia/lpx-monitoramento/archive/refs/heads/main.zip" class="btn btn-outline">⬇️ Download ZIP</a>
+        </div>
         
-        <div class="features">
+        <!-- Funcionalidades -->
+        <div class="section">
             <h2>✨ Funcionalidades</h2>
-            <ul>
-                <li>Monitoramento em tempo real com câmera virtual</li>
-                <li>Central de alertas com filtros por período</li>
-                <li>Detecção e contagem de pessoas e veículos</li>
-                <li>Dashboard com estatísticas em tempo real</li>
-                <li>Sistema de login seguro</li>
-                <li>Interface responsiva e moderna</li>
-                <li>Banco de dados integrado</li>
-                <li>Suporte a múltiplas câmeras</li>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">📹</div>
+                    <div class="feature-text">Monitoramento 24h</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🚨</div>
+                    <div class="feature-text">Central de Alertas</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">👥</div>
+                    <div class="feature-text">Detecção de Pessoas</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🚗</div>
+                    <div class="feature-text">Registro de Veículos</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-text">Dashboard</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔐</div>
+                    <div class="feature-text">Login Seguro</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Instalação -->
+        <div class="section" id="instalacao">
+            <h2>📥 Como Instalar</h2>
+            
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('linux')">🐧 Linux</button>
+                <button class="tab" onclick="showTab('mac')">🍎 macOS</button>
+                <button class="tab" onclick="showTab('windows')">🪟 Windows</button>
+                <button class="tab" onclick="showTab('docker')">🐳 Docker</button>
+            </div>
+            
+            <!-- Linux -->
+            <div class="tab-content active" id="linux">
+                <h3>🐧 Instalação no Linux</h3>
+                <ol class="install-steps">
+                    <li>
+                        <strong>Clone o repositório:</strong>
+                        <code>git clone https://github.com/lpx-tecnologia/lpx-monitoramento.git
+cd lpx-monitoramento</code>
+                    </li>
+                    <li>
+                        <strong>Execute o instalador automático:</strong>
+                        <code>chmod +x setup.sh
+./setup.sh</code>
+                    </li>
+                    <li>
+                        <strong>Ou instale manualmente:</strong>
+                        <code>python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python app.py</code>
+                    </li>
+                    <li>
+                        <strong>Acesse o sistema:</strong>
+                        <code>http://localhost:5000
+Usuário: admin
+Senha: admin123</code>
+                    </li>
+                </ol>
+            </div>
+            
+            <!-- macOS -->
+            <div class="tab-content" id="mac">
+                <h3>🍎 Instalação no macOS</h3>
+                <ol class="install-steps">
+                    <li>
+                        <strong>Instale o Python (se necessário):</strong>
+                        <code>brew install python3</code>
+                    </li>
+                    <li>
+                        <strong>Clone o repositório:</strong>
+                        <code>git clone https://github.com/lpx-tecnologia/lpx-monitoramento.git
+cd lpx-monitoramento</code>
+                    </li>
+                    <li>
+                        <strong>Execute:</strong>
+                        <code>chmod +x run.sh
+./run.sh</code>
+                    </li>
+                    <li>
+                        <strong>Acesse:</strong>
+                        <code>http://localhost:5000
+Login: admin / admin123</code>
+                    </li>
+                </ol>
+            </div>
+            
+            <!-- Windows -->
+            <div class="tab-content" id="windows">
+                <h3>🪟 Instalação no Windows</h3>
+                <ol class="install-steps">
+                    <li>
+                        <strong>Instale o Python:</strong>
+                        <p>Baixe em: <a href="https://python.org" style="color: #00ff00;">python.org</a></p>
+                        <p style="color: #ffaa00;">⚠️ Marque "Add Python to PATH" na instalação!</p>
+                    </li>
+                    <li>
+                        <strong>Clone o repositório:</strong>
+                        <code>git clone https://github.com/lpx-tecnologia/lpx-monitoramento.git
+cd lpx-monitoramento</code>
+                    </li>
+                    <li>
+                        <strong>Execute o arquivo run.bat:</strong>
+                        <p>Clique duas vezes em <code>run.bat</code></p>
+                        <p>Ou no terminal:</p>
+                        <code>run.bat</code>
+                    </li>
+                    <li>
+                        <strong>Acesse:</strong>
+                        <code>http://localhost:5000
+Login: admin / admin123</code>
+                    </li>
+                </ol>
+            </div>
+            
+            <!-- Docker -->
+            <div class="tab-content" id="docker">
+                <h3>🐳 Instalação com Docker</h3>
+                <ol class="install-steps">
+                    <li>
+                        <strong>Build da imagem:</strong>
+                        <code>docker build -t lpx-monitoramento .</code>
+                    </li>
+                    <li>
+                        <strong>Execute o container:</strong>
+                        <code>docker run -p 5000:5000 lpx-monitoramento</code>
+                    </li>
+                    <li>
+                        <strong>Acesse:</strong>
+                        <code>http://localhost:5000</code>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- Requisitos -->
+        <div class="section">
+            <h2>📋 Requisitos do Sistema</h2>
+            <ul style="list-style: none; color: #ccc;">
+                <li>✅ Python 3.8 ou superior</li>
+                <li>✅ pip (gerenciador de pacotes Python)</li>
+                <li>✅ Git (opcional, para clonar)</li>
+                <li>✅ Navegador web moderno</li>
+                <li>✅ 100MB de espaço em disco</li>
+                <li>✅ Sistema operacional: Linux, macOS ou Windows</li>
             </ul>
         </div>
         
-        <div class="stats">
-            <div class="stat-item">
-                <div class="stat-number">24h</div>
-                <div class="stat-label">Monitoramento</div>
+        <!-- Acesso Rápido -->
+        <div class="section">
+            <h2>🔑 Acesso Padrão</h2>
+            <div class="alert">
+                <p><strong>🌐 URL:</strong> http://localhost:5000</p>
+                <p><strong>👤 Usuário:</strong> admin</p>
+                <p><strong>🔑 Senha:</strong> admin123</p>
             </div>
-            <div class="stat-item">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Open Source</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">MIT</div>
-                <div class="stat-label">Licença</div>
-            </div>
+            <p style="color: #ffaa00; margin-top: 10px;">⚠️ Altere a senha após o primeiro acesso!</p>
         </div>
         
-        <div class="install-cmd">
-            git clone https://github.com/LPX-Tecnologia/lpx-monitoramento.git
+        <!-- Comando Rápido -->
+        <div class="section">
+            <h2>⚡ Instalação Rápida (Linux/Mac)</h2>
+            <code>git clone https://github.com/lpx-tecnologia/lpx-monitoramento.git && cd lpx-monitoramento && chmod +x setup.sh && ./setup.sh && ./run.sh</code>
         </div>
         
-        <div class="buttons">
-            <a href="https://github.com/lpx-tecnologia/lpx-monitoramento" class="btn">
-                📦 Ver no GitHub
-            </a>
-            <a href="https://github.com/lpx-tecnologia/lpx-monitoramento/archive/refs/heads/main.zip" class="btn btn-outline">
-                ⬇️ Download ZIP
-            </a>
-        </div>
-        
+        <!-- Footer -->
         <div class="footer">
             <p>Desenvolvido com ❤️ por <a href="https://github.com/lpx-tecnologia">LPX Tecnologia</a></p>
-            <p>© 2026 - Todos os direitos reservados</p>
+            <p>© 2026 - Licença MIT</p>
+            <p style="margin-top: 10px;">
+                <a href="https://github.com/LPX-Tecnologia/lpx-monitoramento">GitHub</a> |
+                <a href="https://github.com/LPX-Tecnologia/lpx-monitoramento/issues">Reportar Bug</a> |
+                <a href="https://github.com/LPX-Tecnologia/lpx-monitoramento/archive/refs/heads/main.zip">Download</a>
+            </p>
         </div>
     </div>
+    
+    <script>
+        function showTab(tabName) {
+            // Esconder todos os conteúdos
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remover active de todos os botões
+            document.querySelectorAll('.tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Mostrar o selecionado
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
 </body>
 </html>
-
