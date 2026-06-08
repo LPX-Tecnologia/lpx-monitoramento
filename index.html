@@ -1,4 +1,7 @@
+cd ~/Downloads/lpx\ monitoramento/
 
+# Criar index.html correto
+cat > index.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,67 +9,248 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LPX - Segurança e Monitoramento</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            background: linear-gradient(135deg, #0a0a1a, #1a1a3a);
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: white;
-            font-family: Arial, sans-serif;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
             text-align: center;
+            padding: 20px;
         }
+        
         .container {
             max-width: 600px;
-            padding: 40px;
         }
-        h1 { color: #00ff00; font-size: 3em; margin-bottom: 10px; }
-        .subtitle { color: #888; margin-bottom: 30px; }
+        
+        .logo {
+            font-size: 5em;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        h1 {
+            color: #00ff00;
+            font-size: 3.5em;
+            text-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+        }
+        
+        .subtitle {
+            color: #888;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9em;
+        }
+        
+        .description {
+            color: #ccc;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        
+        .features {
+            text-align: left;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 1px solid rgba(0, 255, 0, 0.2);
+        }
+        
+        .features h2 {
+            color: #00ff00;
+            margin-bottom: 15px;
+        }
+        
+        .features li {
+            margin: 10px 0;
+            color: #ccc;
+            list-style: none;
+        }
+        
+        .features li::before {
+            content: "✅ ";
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        
         .btn {
             display: inline-block;
             padding: 15px 30px;
-            background: #00ff00;
+            background: linear-gradient(90deg, #009900, #00ff00);
             color: black;
             text-decoration: none;
             border-radius: 10px;
             font-weight: bold;
-            margin: 10px;
+            font-size: 1em;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
         }
-        .btn:hover { background: #00cc00; }
-        .features { text-align: left; margin: 30px 0; }
-        .features li { margin: 10px 0; color: #ccc; }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 255, 0, 0.3);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #00ff00;
+            color: #00ff00;
+        }
+        
+        .btn-outline:hover {
+            background: rgba(0, 255, 0, 0.1);
+        }
+        
+        .install-cmd {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 10px;
+            font-family: monospace;
+            color: #00ff00;
+            margin: 20px 0;
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            word-break: break-all;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .footer a {
+            color: #00ff00;
+            text-decoration: none;
+        }
+        
+        .stats {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            min-width: 100px;
+        }
+        
+        .stat-number {
+            color: #00ff00;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        
+        .stat-label {
+            color: #888;
+            font-size: 0.8em;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🔒 LPX</h1>
+        <div class="logo">🔒</div>
+        <h1>LPX</h1>
         <p class="subtitle">Segurança e Monitoramento Inteligente</p>
         
-        <p>Sistema profissional de vigilância com IA</p>
+        <div>
+            <span class="badge">🐍 Python 3.8+</span>
+            <span class="badge">📹 OpenCV</span>
+            <span class="badge">🌐 Flask</span>
+            <span class="badge">📊 SQLite</span>
+        </div>
+        
+        <p class="description">
+            Sistema profissional de vigilância com câmera virtual, 
+            reconhecimento de padrões e central de alertas inteligentes.
+            Desenvolvido com tecnologias modernas para segurança 24 horas.
+        </p>
         
         <div class="features">
-            <h3>✨ Funcionalidades:</h3>
+            <h2>✨ Funcionalidades</h2>
             <ul>
-                <li>📹 Monitoramento em tempo real</li>
-                <li>🚨 Central de alertas inteligentes</li>
-                <li>👥 Detecção de pessoas e veículos</li>
-                <li>📊 Dashboard estatístico</li>
-                <li>🌐 Multi-câmeras</li>
+                <li>Monitoramento em tempo real com câmera virtual</li>
+                <li>Central de alertas com filtros por período</li>
+                <li>Detecção e contagem de pessoas e veículos</li>
+                <li>Dashboard com estatísticas em tempo real</li>
+                <li>Sistema de login seguro</li>
+                <li>Interface responsiva e moderna</li>
+                <li>Banco de dados integrado</li>
+                <li>Suporte a múltiplas câmeras</li>
             </ul>
         </div>
         
-        <a href="https://github.com/lpx-tecnologia/lpx-monitoramento" class="btn">
-            📦 Ver no GitHub
-        </a>
-        <a href="https://github.com/lpx-tecnologia/lpx-monitoramento/archive/main.zip" class="btn">
-            ⬇️ Download
-        </a>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">24h</div>
+                <div class="stat-label">Monitoramento</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Open Source</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">MIT</div>
+                <div class="stat-label">Licença</div>
+            </div>
+        </div>
         
-        <p style="margin-top: 20px; color: #888; font-size: 0.9em;">
-            git clone https://github.com/LPX-Tecnologia/lpx-monitoramento.git
-        </p>
+        <div class="install-cmd">
+            git clone https://github.com/lpx-tecnologia/lpx-monitoramento.git
+        </div>
+        
+        <div class="buttons">
+            <a href="https://github.com/lpx-tecnologia/lpx-monitoramento" class="btn">
+                📦 Ver no GitHub
+            </a>
+            <a href="https://github.com/lpx-tecnologia/lpx-monitoramento/archive/refs/heads/main.zip" class="btn btn-outline">
+                ⬇️ Download ZIP
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p>Desenvolvido com ❤️ por <a href="https://github.com/lpx-tecnologia">LPX Tecnologia</a></p>
+            <p>© 2024 - Todos os direitos reservados</p>
+        </div>
     </div>
 </body>
 </html>
+HTMLEOF
 
+echo "✅ index.html CORRETO criado!"
