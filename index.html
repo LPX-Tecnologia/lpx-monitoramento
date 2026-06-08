@@ -1,0 +1,76 @@
+cd ~/Downloads/lpx\ monitoramento/
+
+cat > index.html << 'EOF'
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LPX - Segurança e Monitoramento</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: linear-gradient(135deg, #0a0a1a, #1a1a3a);
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 40px;
+        }
+        h1 { color: #00ff00; font-size: 3em; margin-bottom: 10px; }
+        .subtitle { color: #888; margin-bottom: 30px; }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #00ff00;
+            color: black;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            margin: 10px;
+        }
+        .btn:hover { background: #00cc00; }
+        .features { text-align: left; margin: 30px 0; }
+        .features li { margin: 10px 0; color: #ccc; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔒 LPX</h1>
+        <p class="subtitle">Segurança e Monitoramento Inteligente</p>
+        
+        <p>Sistema profissional de vigilância com IA</p>
+        
+        <div class="features">
+            <h3>✨ Funcionalidades:</h3>
+            <ul>
+                <li>📹 Monitoramento em tempo real</li>
+                <li>🚨 Central de alertas inteligentes</li>
+                <li>👥 Detecção de pessoas e veículos</li>
+                <li>📊 Dashboard estatístico</li>
+                <li>🌐 Multi-câmeras</li>
+            </ul>
+        </div>
+        
+        <a href="https://github.com/lpx-tecnologia/lpx-monitoramento" class="btn">
+            📦 Ver no GitHub
+        </a>
+        <a href="https://github.com/lpx-tecnologia/lpx-monitoramento/archive/main.zip" class="btn">
+            ⬇️ Download
+        </a>
+        
+        <p style="margin-top: 20px; color: #888; font-size: 0.9em;">
+            git clone https://github.com/lpx-tecnologia/lpx-monitoramento.git
+        </p>
+    </div>
+</body>
+</html>
+EOF
+
+echo "✅ index.html criado!"
