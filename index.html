@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -32,7 +31,6 @@
             line-height: 1.6;
         }
         
-        /* Grid background */
         .grid-bg {
             position: fixed;
             top: 0;
@@ -124,7 +122,6 @@
             font-size: 1.05em;
         }
         
-        /* Badges */
         .badges {
             display: flex;
             justify-content: center;
@@ -150,7 +147,6 @@
             box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
         }
         
-        /* Buttons */
         .buttons {
             display: flex;
             gap: 15px;
@@ -197,7 +193,6 @@
             transform: translateY(-2px);
         }
         
-        /* Section */
         .section {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -230,7 +225,6 @@
             background: var(--border);
         }
         
-        /* Features Grid */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -265,7 +259,6 @@
             font-size: 0.95em;
         }
         
-        /* Tabs */
         .tabs {
             display: flex;
             gap: 8px;
@@ -314,7 +307,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* Steps */
         .steps {
             list-style: none;
             counter-reset: step;
@@ -356,7 +348,6 @@
             color: var(--green);
         }
         
-        /* Code Block */
         code {
             background: #000;
             color: var(--green);
@@ -380,26 +371,6 @@
             opacity: 0.7;
         }
         
-        .copy-btn {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            padding: 5px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.8em;
-            transition: all 0.3s;
-        }
-        
-        .copy-btn:hover {
-            border-color: var(--green);
-            color: var(--green);
-        }
-        
-        /* Alert */
         .alert {
             background: rgba(0, 255, 0, 0.05);
             border: 1px solid rgba(0, 255, 0, 0.2);
@@ -413,7 +384,6 @@
             border-color: rgba(255, 170, 0, 0.2);
         }
         
-        /* Stats */
         .stats-row {
             display: flex;
             gap: 15px;
@@ -443,7 +413,222 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
+
+        /* ============ FEEDBACK BOX ============ */
+        .feedback-section {
+            background: linear-gradient(135deg, rgba(0, 255, 0, 0.03), rgba(0, 255, 0, 0.01));
+            border: 1px solid rgba(0, 255, 0, 0.2);
+        }
+
+        .feedback-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .feedback-form input,
+        .feedback-form textarea,
+        .feedback-form select {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 18px;
+            color: var(--text);
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 0.95em;
+            transition: all 0.3s;
+            resize: vertical;
+        }
+
+        .feedback-form input:focus,
+        .feedback-form textarea:focus,
+        .feedback-form select:focus {
+            outline: none;
+            border-color: var(--green);
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+        }
+
+        .feedback-form textarea {
+            min-height: 120px;
+        }
+
+        .feedback-form select {
+            cursor: pointer;
+        }
+
+        .feedback-form select option {
+            background: var(--bg-card);
+            color: var(--text);
+        }
+
+        .rating-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .star-rating {
+            display: flex;
+            gap: 5px;
+            flex-direction: row-reverse;
+        }
+
+        .star-rating input {
+            display: none;
+        }
+
+        .star-rating label {
+            font-size: 2em;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .star-rating label:hover,
+        .star-rating label:hover ~ label,
+        .star-rating input:checked ~ label {
+            color: #ffd700;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            transform: scale(1.2);
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            accent-color: var(--green);
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .feedback-submit {
+            background: linear-gradient(135deg, #009900, #00ff00);
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .feedback-submit:hover {
+            box-shadow: 0 0 40px rgba(0, 255, 0, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .feedback-submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .feedback-success {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .feedback-success.show {
+            display: block;
+        }
+
+        .feedback-success .emoji {
+            font-size: 4em;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .feedback-success h3 {
+            color: var(--green);
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .feedback-success p {
+            color: var(--text-secondary);
+        }
+
+        .emoji-picker {
+            display: flex;
+            gap: 10px;
+            font-size: 2em;
+        }
+
+        .emoji-picker span {
+            cursor: pointer;
+            transition: all 0.3s;
+            filter: grayscale(100%);
+            opacity: 0.5;
+        }
+
+        .emoji-picker span:hover,
+        .emoji-picker span.active {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.3);
+        }
+
+        /* Floating Feedback Button */
+        .floating-feedback {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--green);
+            color: #000;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            cursor: pointer;
+            box-shadow: 0 5px 25px rgba(0, 255, 0, 0.3);
+            transition: all 0.3s;
+            z-index: 999;
+            border: none;
+        }
+
+        .floating-feedback:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 35px rgba(0, 255, 0, 0.5);
+        }
+
+        .floating-feedback .tooltip {
+            position: absolute;
+            right: 70px;
+            background: var(--bg-card);
+            color: var(--text);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.5em;
+            white-space: nowrap;
+            opacity: 0;
+            transition: all 0.3s;
+            pointer-events: none;
+        }
+
+        .floating-feedback:hover .tooltip {
+            opacity: 1;
+        }
+
         /* Footer */
         .footer {
             text-align: center;
@@ -471,19 +656,25 @@
             flex-wrap: wrap;
         }
         
-        /* Responsive */
         @media (max-width: 600px) {
             .hero h1 { font-size: 2.8em; letter-spacing: 4px; }
             .section { padding: 20px; }
             .features-grid { grid-template-columns: repeat(2, 1fr); }
             .btn { padding: 12px 24px; font-size: 0.9em; }
             .avatar { width: 90px; height: 90px; }
+            .floating-feedback { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 1.2em; }
         }
     </style>
 </head>
 <body>
     <div class="grid-bg"></div>
     
+    <!-- Botão Flutuante de Feedback -->
+    <button class="floating-feedback" onclick="scrollToFeedback()" title="Deixar Feedback">
+        💬
+        <span class="tooltip">Feedback</span>
+    </button>
+
     <div class="container">
         <!-- Hero -->
         <div class="hero">
@@ -667,28 +858,180 @@ cd lpx-monitoramento</code>
                 ⚠️ <strong>Importante:</strong> Altere a senha padrão após o primeiro acesso!
             </div>
         </div>
-        
+
+        <!-- ============ SEÇÃO DE FEEDBACK ============ -->
+        <div class="section feedback-section" id="feedback">
+            <div class="section-title">
+                <span class="icon">💬</span>
+                Feedback & Sugestões
+                <span class="line"></span>
+            </div>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                Testou o sistema? Adoraríamos saber sua opinião! Sugestões são bem-vindas para melhorarmos cada vez mais. 🚀
+            </p>
+
+            <!-- Formulário de Feedback -->
+            <form class="feedback-form" id="feedbackForm" onsubmit="submitFeedback(event)">
+                <input type="text" id="name" placeholder="Seu nome (opcional)" maxlength="100">
+                
+                <input type="email" id="email" placeholder="Seu e-mail (opcional)" maxlength="150">
+                
+                <select id="type" required>
+                    <option value="" disabled selected>Tipo de feedback *</option>
+                    <option value="sugestao">💡 Sugestão de melhoria</option>
+                    <option value="bug">🐛 Reportar bug</option>
+                    <option value="elogio">👍 Elogio</option>
+                    <option value="feature">🆕 Nova funcionalidade</option>
+                    <option value="outro">📝 Outro</option>
+                </select>
+
+                <!-- Avaliação com estrelas -->
+                <div class="rating-group">
+                    <span style="color: var(--text-secondary);">Avaliação:</span>
+                    <div class="star-rating">
+                        <input type="radio" id="star5" name="rating" value="5">
+                        <label for="star5" title="Excelente!">⭐</label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4" title="Muito bom!">⭐</label>
+                        <input type="radio" id="star3" name="rating" value="3" checked>
+                        <label for="star3" title="Bom">⭐</label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2" title="Regular">⭐</label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1" title="Ruim">⭐</label>
+                    </div>
+                </div>
+
+                <!-- Sentimento com emojis -->
+                <div class="rating-group">
+                    <span style="color: var(--text-secondary);">Como você se sente?</span>
+                    <div class="emoji-picker" id="emojiPicker">
+                        <span onclick="selectEmoji(this)" data-mood="amazing">🤩</span>
+                        <span onclick="selectEmoji(this)" data-mood="happy">😊</span>
+                        <span onclick="selectEmoji(this)" data-mood="neutral">😐</span>
+                        <span onclick="selectEmoji(this)" data-mood="sad">😕</span>
+                        <span onclick="selectEmoji(this)" data-mood="angry">😤</span>
+                    </div>
+                </div>
+
+                <textarea id="message" placeholder="Descreva sua sugestão, ideia ou problema encontrado... *" required maxlength="2000"></textarea>
+
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" id="allowContact" checked>
+                        Aceito receber atualizações sobre o projeto
+                    </label>
+                </div>
+
+                <button type="submit" class="feedback-submit" id="submitBtn">
+                    🚀 ENVIAR FEEDBACK
+                </button>
+            </form>
+
+            <!-- Mensagem de Sucesso -->
+            <div class="feedback-success" id="feedbackSuccess">
+                <span class="emoji">🎉</span>
+                <h3>Feedback Enviado com Sucesso!</h3>
+                <p>Muito obrigado pela sua contribuição! 💚</p>
+                <p style="color: var(--text-secondary); margin-top: 10px;">
+                    Sua opinião é muito importante para melhorarmos o LPX.
+                </p>
+                <button class="btn btn-outline" onclick="resetFeedback()" style="margin-top: 20px;">
+                    📝 Enviar outro feedback
+                </button>
+            </div>
+        </div>
+
         <!-- Footer -->
         <div class="footer">
             <img src="https://avatars.githubusercontent.com/u/287110848?s=100" 
                  alt="LPX" 
                  style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #00ff00; margin-bottom: 15px;">
             <p>Desenvolvido com ❤️ por <a href="https://github.com/LPX-Tecnologia">LPX Tecnologia</a></p>
-            <p style="color: #444;">© 2024 - Licença MIT</p>
+            <p style="color: #444;">© 2026 - Licença MIT</p>
             <div class="footer-links">
                 <a href="https://github.com/LPX-Tecnologia/lpx-monitoramento">💻 GitHub</a>
                 <a href="https://github.com/LPX-Tecnologia/lpx-monitoramento/issues">🐛 Reportar Bug</a>
                 <a href="https://github.com/LPX-Tecnologia/lpx-monitoramento/archive/refs/heads/main.zip">📦 Download</a>
+                <a href="#feedback">💬 Feedback</a>
             </div>
         </div>
     </div>
     
     <script>
+        let selectedEmoji = null;
+
         function showTab(tabId, btn) {
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
             btn.classList.add('active');
+        }
+
+        function scrollToFeedback() {
+            document.getElementById('feedback').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function selectEmoji(element) {
+            document.querySelectorAll('.emoji-picker span').forEach(e => e.classList.remove('active'));
+            element.classList.add('active');
+            selectedEmoji = element.dataset.mood;
+        }
+
+        function submitFeedback(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const form = document.getElementById('feedbackForm');
+            const success = document.getElementById('feedbackSuccess');
+            
+            // Coletar dados
+            const feedbackData = {
+                name: document.getElementById('name').value || 'Anônimo',
+                email: document.getElementById('email').value || 'Não informado',
+                type: document.getElementById('type').value,
+                rating: document.querySelector('input[name="rating"]:checked')?.value || '3',
+                mood: selectedEmoji || 'neutral',
+                message: document.getElementById('message').value,
+                allowContact: document.getElementById('allowContact').checked,
+                date: new Date().toISOString(),
+                page: window.location.href
+            };
+
+            // Desabilitar botão
+            submitBtn.disabled = true;
+            submitBtn.textContent = '⏳ Enviando...';
+
+            // Simular envio (substitua pela sua URL de API)
+            setTimeout(() => {
+                console.log('📬 Feedback recebido:', feedbackData);
+                
+                // Mostrar sucesso
+                form.style.display = 'none';
+                success.classList.add('show');
+                
+                // Opcional: Enviar para uma API real
+                // fetch('https://sua-api.com/feedback', {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify(feedbackData)
+                // });
+                
+            }, 1500);
+        }
+
+        function resetFeedback() {
+            const form = document.getElementById('feedbackForm');
+            const success = document.getElementById('feedbackSuccess');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            form.style.display = 'flex';
+            form.reset();
+            success.classList.remove('show');
+            submitBtn.disabled = false;
+            submitBtn.textContent = '🚀 ENVIAR FEEDBACK';
+            selectedEmoji = null;
+            document.querySelectorAll('.emoji-picker span').forEach(e => e.classList.remove('active'));
         }
     </script>
 </body>
