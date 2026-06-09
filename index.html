@@ -979,24 +979,49 @@ cd lpx-monitoramento</code>
         }
 
         function submitFeedback(event) {
-            event.preventDefault();
+    event.preventDefault();
+    const submitBtn = document.getElementById('submitBtn');
+    const form = document.getElementById('feedbackForm');
+    const success = document.getElementById('feedbackSuccess');
+    
+    const feedback = {
+        name: document.getElementById('name').value,
+        type: document.getElementById('type').value,
+        rating: parseInt(document.querySelector('input[name="rating"]:checked')?.value || '3'),
+        message: document.getElementById('message').value
+    };
+    
+    submitBtn.disabled = true;
+    submitBtn.textContent = '⏳ Enviando...';
+    
+    // Enviar para o servidor
+    fetch('http://localhost:3000/api/feedbacks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(feedback)
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.success) {
+            form.style.display = 'none';
+            success.classList.add('show');
             
-            const submitBtn = document.getElementById('submitBtn');
-            const form = document.getElementById('feedbackForm');
-            const success = document.getElementById('feedbackSuccess');
-            
-            // Coletar dados
-            const feedbackData = {
-                name: document.getElementById('name').value || 'Anônimo',
-                email: document.getElementById('email').value || 'Não informado',
-                type: document.getElementById('type').value,
-                rating: document.querySelector('input[name="rating"]:checked')?.value || '3',
-                mood: selectedEmoji || 'neutral',
-                message: document.getElementById('message').value,
-                allowContact: document.getElementById('allowContact').checked,
-                date: new Date().toISOString(),
-                page: window.location.href
-            };
+            // Abrir issue no GitHub
+            const stars = '⭐'.repeat(feedback.rating);
+            const emoji = { sugestao: '💡', bug: '🐛', elogio: '👍', feature: '🆕', outro: '📝' }[feedback.type];
+            const title = `${emoji} ${feedback.type.toUpperCase()}: ${feedback.message.substring(0, 50)}`;
+            const body = `## ${emoji} Feedback\n\n**De:** ${feedback.name}\n**Avaliação:** ${stars}\n\n### Mensagem:\n${feedback.message}`;
+            window.open(`https://github.com/LPX-Tecnologia/lpx-monitoramento/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}&labels=feedback`, '_blank');
+        }
+    })
+    .catch(err => {
+        alert('Erro ao enviar. Tente novamente!');
+    })
+    .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = '🚀 ENVIAR FEEDBACK';
+    });
+}
 
             // Desabilitar botão
             submitBtn.disabled = true;
