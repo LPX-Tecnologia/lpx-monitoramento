@@ -3,7 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta tags para SEO e compartilhamento -->
+    <meta name="description" content="LPX - Sistema inteligente de vigilância com processamento de imagem em tempo real, detecção de padrões e central de alertas integrada. 100% Open Source.">
+    <meta name="keywords" content="monitoramento, segurança, vigilância, opencv, python, flask, open source, câmeras, detecção">
+    <meta name="author" content="LPX Tecnologia">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="LPX - Segurança e Monitoramento">
+    <meta property="og:description" content="Sistema inteligente de vigilância com processamento de imagem em tempo real. 100% Open Source.">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/287110848?s=400">
+    <meta property="og:url" content="https://github.com/LPX-Tecnologia/lpx-monitoramento">
+    <meta property="og:site_name" content="LPX Monitoramento">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LPX - Segurança e Monitoramento">
+    <meta name="twitter:description" content="Sistema open source de vigilância inteligente com IA">
+    <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/287110848?s=400">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/287110848?s=64">
+    <link rel="apple-touch-icon" href="https://avatars.githubusercontent.com/u/287110848?s=180">
+    
+    <!-- Cor do tema (mobile browsers) -->
+    <meta name="theme-color" content="#0a0a0a">
+    
     <title>LPX - Segurança e Monitoramento</title>
+    
     <style>
         :root {
             --bg-primary: #0a0a0a;
@@ -21,6 +50,10 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
         }
         
         body {
@@ -167,6 +200,7 @@
             border: none;
             position: relative;
             overflow: hidden;
+            display: inline-block;
         }
         
         .btn-primary {
@@ -656,6 +690,7 @@
             flex-wrap: wrap;
         }
         
+        /* Responsividade */
         @media (max-width: 600px) {
             .hero h1 { font-size: 2.8em; letter-spacing: 4px; }
             .section { padding: 20px; }
@@ -670,19 +705,21 @@
     <div class="grid-bg"></div>
     
     <!-- Botão Flutuante de Feedback -->
-    <button class="floating-feedback" onclick="scrollToFeedback()" title="Deixar Feedback">
+    <button class="floating-feedback" onclick="scrollToFeedback()" title="Deixar Feedback" aria-label="Botão de feedback">
         💬
         <span class="tooltip">Feedback</span>
     </button>
 
     <div class="container">
         <!-- Hero -->
-        <div class="hero">
+        <header class="hero">
             <div class="avatar-container">
-                <img src="https://avatars.githubusercontent.com/u/287110848?s=400&u=f619a62d13cf1872732b62444ef9acf48d971ac5&v=4" 
+                <img src="https://avatars.githubusercontent.com/u/287110848?s=400" 
                      alt="LPX Logo" 
-                     class="avatar">
-                <div class="status-dot"></div>
+                     class="avatar"
+                     width="120"
+                     height="120">
+                <div class="status-dot" aria-label="Sistema online"></div>
             </div>
             
             <h1>LPX</h1>
@@ -702,7 +739,7 @@
             
             <div class="buttons">
                 <a href="#instalacao" class="btn btn-primary">📥 COMO INSTALAR</a>
-                <a href="https://github.com/LPX-Tecnologia/lpx-monitoramento" class="btn btn-outline">📦 VER NO GITHUB</a>
+                <a href="https://github.com/LPX-Tecnologia/lpx-monitoramento" class="btn btn-outline" target="_blank" rel="noopener">📦 VER NO GITHUB</a>
                 <a href="https://github.com/LPX-Tecnologia/lpx-monitoramento/archive/refs/heads/main.zip" class="btn btn-outline">⬇️ DOWNLOAD</a>
             </div>
             
@@ -720,11 +757,11 @@
                     <div class="stat-label">Licença</div>
                 </div>
             </div>
-        </div>
+        </header>
         
         <!-- Funcionalidades -->
-        <div class="section">
-            <div class="section-title">
+        <section class="section" aria-labelledby="features-title">
+            <div class="section-title" id="features-title">
                 <span class="icon">⚡</span>
                 Funcionalidades
                 <span class="line"></span>
@@ -755,23 +792,23 @@
                     <span class="title">Login Seguro</span>
                 </div>
             </div>
-        </div>
+        </section>
         
         <!-- Instalação -->
-        <div class="section" id="instalacao">
-            <div class="section-title">
+        <section class="section" id="instalacao" aria-labelledby="install-title">
+            <div class="section-title" id="install-title">
                 <span class="icon">📥</span>
                 Como Instalar
                 <span class="line"></span>
             </div>
             
-            <div class="tabs">
-                <button class="tab-btn active" onclick="showTab('linux', this)">🐧 Linux</button>
-                <button class="tab-btn" onclick="showTab('mac', this)">🍎 macOS</button>
-                <button class="tab-btn" onclick="showTab('windows', this)">🪟 Windows</button>
+            <div class="tabs" role="tablist">
+                <button class="tab-btn active" onclick="showTab('linux', this)" role="tab" aria-selected="true">🐧 Linux</button>
+                <button class="tab-btn" onclick="showTab('mac', this)" role="tab" aria-selected="false">🍎 macOS</button>
+                <button class="tab-btn" onclick="showTab('windows', this)" role="tab" aria-selected="false">🪟 Windows</button>
             </div>
             
-            <div class="tab-content active" id="linux">
+            <div class="tab-content active" id="linux" role="tabpanel">
                 <ol class="steps">
                     <li>
                         <strong>Clone o repositório:</strong>
@@ -794,7 +831,7 @@ cd lpx-monitoramento</code>
                 </ol>
             </div>
             
-            <div class="tab-content" id="mac">
+            <div class="tab-content" id="mac" role="tabpanel">
                 <ol class="steps">
                     <li>
                         <strong>Instale Python (se necessário):</strong>
@@ -812,10 +849,10 @@ cd lpx-monitoramento && ./run.sh</code>
                 </ol>
             </div>
             
-            <div class="tab-content" id="windows">
+            <div class="tab-content" id="windows" role="tabpanel">
                 <ol class="steps">
                     <li>
-                        <strong>Instale Python:</strong> Baixe em <a href="https://python.org" style="color: #00ff00;">python.org</a>
+                        <strong>Instale Python:</strong> Baixe em <a href="https://python.org" target="_blank" rel="noopener" style="color: #00ff00;">python.org</a>
                     </li>
                     <li>
                         <strong>Clone o repositório:</strong>
@@ -830,21 +867,21 @@ cd lpx-monitoramento</code>
                     </li>
                 </ol>
             </div>
-        </div>
+        </section>
         
         <!-- Instalação Rápida -->
-        <div class="section">
-            <div class="section-title">
+        <section class="section" aria-labelledby="quick-title">
+            <div class="section-title" id="quick-title">
                 <span class="icon">⚡</span>
                 Instalação Rápida (Linux/macOS)
                 <span class="line"></span>
             </div>
             <code>git clone https://github.com/LPX-Tecnologia/lpx-monitoramento.git && cd lpx-monitoramento && chmod +x setup.sh run.sh && ./setup.sh && ./run.sh</code>
-        </div>
+        </section>
         
         <!-- Acesso -->
-        <div class="section">
-            <div class="section-title">
+        <section class="section" aria-labelledby="access-title">
+            <div class="section-title" id="access-title">
                 <span class="icon">🔑</span>
                 Credenciais de Acesso
                 <span class="line"></span>
@@ -857,11 +894,11 @@ cd lpx-monitoramento</code>
             <div class="alert alert-warning">
                 ⚠️ <strong>Importante:</strong> Altere a senha padrão após o primeiro acesso!
             </div>
-        </div>
+        </section>
 
         <!-- ============ SEÇÃO DE FEEDBACK ============ -->
-        <div class="section feedback-section" id="feedback">
-            <div class="section-title">
+        <section class="section feedback-section" id="feedback" aria-labelledby="feedback-title">
+            <div class="section-title" id="feedback-title">
                 <span class="icon">💬</span>
                 Feedback & Sugestões
                 <span class="line"></span>
@@ -872,10 +909,13 @@ cd lpx-monitoramento</code>
 
             <!-- Formulário de Feedback -->
             <form class="feedback-form" id="feedbackForm" onsubmit="submitFeedback(event)">
-                <input type="text" id="name" placeholder="Seu nome (opcional)" maxlength="100">
+                <label for="name" style="display:none;">Nome</label>
+                <input type="text" id="name" placeholder="Seu nome (opcional)" maxlength="100" autocomplete="name">
                 
-                <input type="email" id="email" placeholder="Seu e-mail (opcional)" maxlength="150">
+                <label for="email" style="display:none;">E-mail</label>
+                <input type="email" id="email" placeholder="Seu e-mail (opcional)" maxlength="150" autocomplete="email">
                 
+                <label for="type" style="display:none;">Tipo de feedback</label>
                 <select id="type" required>
                     <option value="" disabled selected>Tipo de feedback *</option>
                     <option value="sugestao">💡 Sugestão de melhoria</option>
@@ -886,34 +926,38 @@ cd lpx-monitoramento</code>
                 </select>
 
                 <!-- Avaliação com estrelas -->
-                <div class="rating-group">
-                    <span style="color: var(--text-secondary);">Avaliação:</span>
-                    <div class="star-rating">
-                        <input type="radio" id="star5" name="rating" value="5">
-                        <label for="star5" title="Excelente!">⭐</label>
-                        <input type="radio" id="star4" name="rating" value="4">
-                        <label for="star4" title="Muito bom!">⭐</label>
-                        <input type="radio" id="star3" name="rating" value="3" checked>
-                        <label for="star3" title="Bom">⭐</label>
-                        <input type="radio" id="star2" name="rating" value="2">
-                        <label for="star2" title="Regular">⭐</label>
-                        <input type="radio" id="star1" name="rating" value="1">
-                        <label for="star1" title="Ruim">⭐</label>
+                <fieldset style="border: none; padding: 0;">
+                    <legend style="display: none;">Avaliação</legend>
+                    <div class="rating-group">
+                        <span style="color: var(--text-secondary);">Avaliação:</span>
+                        <div class="star-rating">
+                            <input type="radio" id="star5" name="rating" value="5">
+                            <label for="star5" title="Excelente!">⭐</label>
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label for="star4" title="Muito bom!">⭐</label>
+                            <input type="radio" id="star3" name="rating" value="3" checked>
+                            <label for="star3" title="Bom">⭐</label>
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label for="star2" title="Regular">⭐</label>
+                            <input type="radio" id="star1" name="rating" value="1">
+                            <label for="star1" title="Ruim">⭐</label>
+                        </div>
                     </div>
-                </div>
+                </fieldset>
 
                 <!-- Sentimento com emojis -->
                 <div class="rating-group">
                     <span style="color: var(--text-secondary);">Como você se sente?</span>
                     <div class="emoji-picker" id="emojiPicker">
-                        <span onclick="selectEmoji(this)" data-mood="amazing">🤩</span>
-                        <span onclick="selectEmoji(this)" data-mood="happy">😊</span>
-                        <span onclick="selectEmoji(this)" data-mood="neutral">😐</span>
-                        <span onclick="selectEmoji(this)" data-mood="sad">😕</span>
-                        <span onclick="selectEmoji(this)" data-mood="angry">😤</span>
+                        <span onclick="selectEmoji(this)" data-mood="amazing" role="button" tabindex="0" aria-label="Maravilhado">🤩</span>
+                        <span onclick="selectEmoji(this)" data-mood="happy" role="button" tabindex="0" aria-label="Feliz">😊</span>
+                        <span onclick="selectEmoji(this)" data-mood="neutral" role="button" tabindex="0" aria-label="Neutro">😐</span>
+                        <span onclick="selectEmoji(this)" data-mood="sad" role="button" tabindex="0" aria-label="Triste">😕</span>
+                        <span onclick="selectEmoji(this)" data-mood="angry" role="button" tabindex="0" aria-label="Irritado">😤</span>
                     </div>
                 </div>
 
+                <label for="message" style="display:none;">Mensagem</label>
                 <textarea id="message" placeholder="Descreva sua sugestão, ideia ou problema encontrado... *" required maxlength="2000"></textarea>
 
                 <div class="checkbox-group">
@@ -940,35 +984,44 @@ cd lpx-monitoramento</code>
                     📝 Enviar outro feedback
                 </button>
             </div>
-        </div>
+        </section>
 
         <!-- Footer -->
-        <div class="footer">
+        <footer class="footer">
             <img src="https://avatars.githubusercontent.com/u/287110848?s=100" 
                  alt="LPX" 
-                 style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #00ff00; margin-bottom: 15px;">
-            <p>Desenvolvido com ❤️ por <a href="https://github.com/LPX-Tecnologia">LPX Tecnologia</a></p>
+                 style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #00ff00; margin-bottom: 15px;"
+                 width="50"
+                 height="50">
+            <p>Desenvolvido com ❤️ por <a href="https://github.com/LPX-Tecnologia" target="_blank" rel="noopener">LPX Tecnologia</a></p>
             <p style="color: #444;">© 2026 - Licença MIT</p>
             <div class="footer-links">
-                <a href="https://github.com/LPX-Tecnologia/lpx-monitoramento">💻 GitHub</a>
-                <a href="https://github.com/LPX-Tecnologia/lpx-monitoramento/issues">🐛 Reportar Bug</a>
+                <a href="https://github.com/LPX-Tecnologia/lpx-monitoramento" target="_blank" rel="noopener">💻 GitHub</a>
+                <a href="https://github.com/LPX-Tecnologia/lpx-monitoramento/issues" target="_blank" rel="noopener">🐛 Reportar Bug</a>
                 <a href="https://github.com/LPX-Tecnologia/lpx-monitoramento/archive/refs/heads/main.zip">📦 Download</a>
                 <a href="#feedback">💬 Feedback</a>
             </div>
-        </div>
+        </footer>
     </div>
     
     <script>
         let selectedEmoji = null;
 
-           <script>
-        let selectedEmoji = null;
-
         function showTab(tabId, btn) {
-            document.querySelectorAll('#instalacao .tab-content').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('#instalacao .tab-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
+            document.querySelectorAll('#instalacao .tab-content').forEach(t => {
+                t.classList.remove('active');
+                t.setAttribute('aria-hidden', 'true');
+            });
+            document.querySelectorAll('#instalacao .tab-btn').forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+            });
+            
+            const activeTab = document.getElementById(tabId);
+            activeTab.classList.add('active');
+            activeTab.setAttribute('aria-hidden', 'false');
             btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
         }
 
         function scrollToFeedback() {
@@ -1002,48 +1055,89 @@ cd lpx-monitoramento</code>
             submitBtn.disabled = true;
             submitBtn.textContent = '⏳ Enviando...';
 
-            // Salvar no localStorage
+            // Salvar no localStorage com delay simulado
             setTimeout(() => {
-                // Recuperar feedbacks existentes
-                let feedbacks = JSON.parse(localStorage.getItem('lpxFeedbacks') || '[]');
-                
-                // Adicionar resposta automática
-                feedback.response = getAutoResponse(feedback.type);
-                feedback.responseDate = new Date().toISOString();
-                feedback.status = 'viewed';
-                
-                // Adicionar no início da lista
-                feedbacks.unshift(feedback);
-                
-                // Salvar
-                localStorage.setItem('lpxFeedbacks', JSON.stringify(feedbacks));
-                
-                console.log('📬 Feedback salvo:', feedback);
-                
-                // Mostrar sucesso
-                form.style.display = 'none';
-                success.classList.add('show');
-                
-                // Abrir issue no GitHub
-                const stars = '⭐'.repeat(feedback.rating);
-                const emoji = { sugestao: '💡', bug: '🐛', elogio: '👍', feature: '🆕', outro: '📝' }[feedback.type] || '📝';
-                const title = `${emoji} ${feedback.type.toUpperCase()}: ${feedback.message.substring(0, 50)}`;
-                const body = `## ${emoji} Feedback\n\n**De:** ${feedback.name}\n**Email:** ${feedback.email}\n**Avaliação:** ${stars} (${feedback.rating}/5)\n**Sentimento:** ${feedback.mood}\n\n### Mensagem:\n${feedback.message}\n\n---\n📅 ${new Date().toLocaleString('pt-BR')}`;
-                
-                window.open(`https://github.com/LPX-Tecnologia/lpx-monitoramento/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}&labels=feedback`, '_blank');
-                
-                submitBtn.disabled = false;
-                submitBtn.textContent = '🚀 ENVIAR FEEDBACK';
+                try {
+                    // Recuperar feedbacks existentes
+                    let feedbacks = JSON.parse(localStorage.getItem('lpxFeedbacks') || '[]');
+                    
+                    // Adicionar resposta automática
+                    feedback.response = getAutoResponse(feedback.type);
+                    feedback.responseDate = new Date().toISOString();
+                    feedback.status = 'viewed';
+                    
+                    // Adicionar no início da lista
+                    feedbacks.unshift(feedback);
+                    
+                    // Limitar a 50 feedbacks armazenados
+                    if (feedbacks.length > 50) {
+                        feedbacks = feedbacks.slice(0, 50);
+                    }
+                    
+                    // Salvar
+                    localStorage.setItem('lpxFeedbacks', JSON.stringify(feedbacks));
+                    
+                    console.log('📬 Feedback salvo:', feedback);
+                    console.log('Total de feedbacks:', feedbacks.length);
+                    
+                    // Mostrar sucesso
+                    form.style.display = 'none';
+                    success.classList.add('show');
+                    
+                    // Abrir issue no GitHub (opcional)
+                    const stars = '⭐'.repeat(feedback.rating);
+                    const emoji = { 
+                        sugestao: '💡', 
+                        bug: '🐛', 
+                        elogio: '👍', 
+                        feature: '🆕', 
+                        outro: '📝' 
+                    }[feedback.type] || '📝';
+                    
+                    const title = `${emoji} ${feedback.type.toUpperCase()}: ${feedback.message.substring(0, 50)}`;
+                    const body = `## ${emoji} Feedback\n\n**De:** ${feedback.name}\n**Email:** ${feedback.email}\n**Avaliação:** ${stars} (${feedback.rating}/5)\n**Sentimento:** ${feedback.mood}\n\n### Mensagem:\n${feedback.message}\n\n---\n📅 ${new Date().toLocaleString('pt-BR')}`;
+                    
+                    const issueUrl = `https://github.com/LPX-Tecnologia/lpx-monitoramento/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}&labels=feedback`;
+                    
+                    // Perguntar se quer abrir issue no GitHub
+                    if (confirm('Feedback salvo! Deseja também abrir uma issue no GitHub?')) {
+                        window.open(issueUrl, '_blank', 'noopener');
+                    }
+                    
+                } catch (error) {
+                    console.error('Erro ao salvar feedback:', error);
+                    alert('Erro ao salvar feedback. Tente novamente.');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = '🚀 ENVIAR FEEDBACK';
+                }
             }, 800);
         }
 
         function getAutoResponse(type) {
             const responses = {
-                bug: ['🐛 Bug em análise pela equipe! Obrigado por reportar.', '🔍 Já estamos investigando o problema.', '✅ Bug corrigido na versão mais recente!'],
-                sugestao: ['💡 Ótima sugestão! Vamos avaliar a implementação.', '🗺️ Adicionado ao nosso roadmap!', '🎉 Sua ideia foi implementada!'],
-                elogio: ['😊 Muito obrigado pelo feedback positivo!', '❤️ Ficamos felizes que está gostando!', '🚀 Continue acompanhando as novidades!'],
-                feature: ['🆕 Funcionalidade interessante! Vamos analisar.', '📋 Adicionado ao backlog de desenvolvimento.'],
-                outro: ['📝 Obrigado pelo feedback! Nossa equipe vai analisar.']
+                bug: [
+                    '🐛 Bug em análise pela equipe! Obrigado por reportar.',
+                    '🔍 Já estamos investigando o problema.',
+                    '✅ Bug corrigido na versão mais recente!'
+                ],
+                sugestao: [
+                    '💡 Ótima sugestão! Vamos avaliar a implementação.',
+                    '🗺️ Adicionado ao nosso roadmap!',
+                    '🎉 Sua ideia foi implementada!'
+                ],
+                elogio: [
+                    '😊 Muito obrigado pelo feedback positivo!',
+                    '❤️ Ficamos felizes que está gostando!',
+                    '🚀 Continue acompanhando as novidades!'
+                ],
+                feature: [
+                    '🆕 Funcionalidade interessante! Vamos analisar.',
+                    '📋 Adicionado ao backlog de desenvolvimento.'
+                ],
+                outro: [
+                    '📝 Obrigado pelo feedback! Nossa equipe vai analisar.'
+                ]
             };
             const arr = responses[type] || responses['outro'];
             return arr[Math.floor(Math.random() * arr.length)];
@@ -1061,8 +1155,10 @@ cd lpx-monitoramento</code>
             submitBtn.textContent = '🚀 ENVIAR FEEDBACK';
             selectedEmoji = null;
             document.querySelectorAll('.emoji-picker span').forEach(e => e.classList.remove('active'));
+            
+            // Scroll suave até o formulário
+            form.scrollIntoView({ behavior: 'smooth' });
         }
-    </script>
     </script>
 </body>
 </html>
